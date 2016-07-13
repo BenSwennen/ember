@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: XEoYH7o6SH/EKeU210gqwqi95KZYnBUdUnKRE5Ap25jdnGMU65V9qxjqdrNsNCzwl/WQBAMAKwcb3CPNrG4YCzKvIyYDG3qK8N8IzZ8jnRKgsVnXC+LI0EU73BQLkgMjksPY7PxZpU33p42ngzS5kZWXwFc+lmpd+KV6QeOr80lXdOGiZfbyDGNdoHoFgTECNSCKXuwUDWuCN3Qzz+wsL6UXaZAf/FgPavr8wa9Y6lCMPgfQgRQAmNpRCXxxYYtesYJQjbDyf1b+UhrDdhpUWDnH4p17cKJ3J+SCNk0J/Rd8oGdbMnb5puKJ3dXyo+VvUTPH2gz+ps9LRBpeO7OqTohK4oQw3yKzMxRCiuwPWBvcILUbXwHSRBGcnieEnrf+7R5Ar/RRKwZb22de+/PYF0QiG+v+wG9QMpBprbxAESWyx70ODTRzOnXQmmyRl4Hd5hZ4TJL7ikai443e9fZg06imKa3pxpKWoaYcbfCkmc3QL3tLDso+hHI5Uyc93kG4H8lJ5kbwYnkujqA/JL6XE5aGb/IebJptX7HEPQ0SvOu319QCf74sc2Brg4ssMV/ppcs9V6/1Kcn4gl1xADpLkgC+pm+BmWjoSXXDBfl2Uif0bLk8zz8iQNViR5UDlt4EB0dmjmujCAcFXk8WyI5bldJxSwFC6l18d8eDw9yVrg0=
+  app: evening-plateau-86580
+  on:
+    repo: BenSwennen/ember
